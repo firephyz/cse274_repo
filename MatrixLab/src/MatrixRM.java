@@ -28,6 +28,9 @@ public class MatrixRM extends Matrix {
 		// Check for boundary conditions
 		if(i >= n || j >= m) throw new ArrayIndexOutOfBoundsException();
 		
+		// i * m + j allows us to simulate the behavior of a
+		// two dimensional array while really using a one dimensional array
+		// under the hood.
 		return A[i * m + j];
 	}
 
@@ -40,6 +43,9 @@ public class MatrixRM extends Matrix {
 		// Check for boundary conditions
 		if(i >= n || j >= m) throw new ArrayIndexOutOfBoundsException();
 		
+		// i * m + j allows us to simulate the behavior of a
+		// two dimensional array while really using a one dimensional array
+		// under the hood.
 		A[i * m + j] = val;
 	}
 	
@@ -50,6 +56,8 @@ public class MatrixRM extends Matrix {
 		
 		for(int i = 0; i < n; ++i) {
 			for(int j = 0; j < m; ++j) {
+				
+				// Is the element at this location the one we are looking for?
 				if(A[i * m + j] == val) {
 					int[] result = {i, j};
 					return result;
@@ -57,6 +65,7 @@ public class MatrixRM extends Matrix {
 			}
 		}
 		
+		// Return null if the pass through the matrix did not find the requested element.
 		return null;
 	}
 

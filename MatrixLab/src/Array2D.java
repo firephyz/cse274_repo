@@ -42,6 +42,7 @@ public class Array2D extends Matrix {
 	 */
 	public int[] find(int val) {
 		
+		// Is the element at this location the one we are looking for?
 		for(int i = 0; i < n; ++i) {
 			for(int j = 0; j < m; ++j) {
 				if(A[i][j] == val) {
@@ -51,6 +52,7 @@ public class Array2D extends Matrix {
 			}
 		}
 		
+		// Return null if the pass through the matrix did not find the requested element.
 		return null;
 	}
 }
