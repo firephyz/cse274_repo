@@ -24,7 +24,11 @@ public class MatrixRM extends Matrix {
 	 */
 	@Override
 	public int get(int i, int j) {
-		// TODO: Write code.  (Please remove this comment.)
+		
+		// Check for boundary conditions
+		if(i >= n || j >= m) throw new ArrayIndexOutOfBoundsException();
+		
+		return A[i * m + j];
 	}
 
 	/* (non-Javadoc)
@@ -32,15 +36,28 @@ public class MatrixRM extends Matrix {
 	 */
 	@Override
 	public void set(int i, int j, int val) {
-		// TODO: Write code.  (Please remove this comment.)
+		
+		// Check for boundary conditions
+		if(i >= n || j >= m) throw new ArrayIndexOutOfBoundsException();
+		
+		A[i * m + j] = val;
 	}
 	
 	/* (non-Javadoc)
 	 * @see Matrix#find(int)
 	 */
 	public int[] find(int val) {
-		// NOTE: DO this WITHOUT calling this.get() -- access A directly.
-		// TODO: Write code.  (Please remove this comment.)
+		
+		for(int i = 0; i < n; ++i) {
+			for(int j = 0; j < m; ++j) {
+				if(A[i * m + j] == val) {
+					int[] result = {i, j};
+					return result;
+				}
+			}
+		}
+		
+		return null;
 	}
 
 }
